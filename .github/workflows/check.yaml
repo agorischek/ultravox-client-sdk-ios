@@ -1,12 +1,12 @@
 on:
   push:
-    branches: [ main ]
+    branches: [main]
   pull_request:
-    branches: [ main ]
+    branches: [main]
 
 jobs:
   check:
-    runs-on: macos-15  # As of Oct 16, 2024 this is actually later than "latest" and consequently has Swift 6.0.0
+    runs-on: macos-15 # As of Oct 16, 2024 this is actually later than "latest" and consequently has Swift 6.0.0
     steps:
       - uses: actions/checkout@v4
 

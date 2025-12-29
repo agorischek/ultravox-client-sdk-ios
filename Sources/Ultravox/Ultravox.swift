@@ -422,7 +422,7 @@ public final class UltravoxSession: NSObject {
 
 extension UltravoxSession: RoomDelegate {
     public nonisolated func room(
-        _: Room, participant _: RemoteParticipant?, didReceiveData data: Data, forTopic _: String
+        _: Room, participant: RemoteParticipant?, didReceiveData data: Data, forTopic topic: String, encryptionType: EncryptionType
     ) {
         Task {
             guard
