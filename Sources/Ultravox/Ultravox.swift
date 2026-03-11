@@ -113,7 +113,7 @@ public struct ClientToolResult {
 ///
 /// The function should take a map containing the tool's parameters (parsed
 /// from JSON) and return a `ClientToolResult` object.
-public typealias ClientToolImplementation = (_ data: [String: Any]) throws -> ClientToolResult
+public typealias ClientToolImplementation = @MainActor (_ data: [String: Any]) async throws -> ClientToolResult
 
 // MARK: - UltravoxSession
 
@@ -389,7 +389,7 @@ public final class UltravoxSession: NSObject {
             return
         }
         do {
-            let result = try implementation(parameters)
+            let result = try await implementation(parameters)
             var data: [String: Any] = [
                 "type": "client_tool_result",
                 "invocationId": invocationId,
